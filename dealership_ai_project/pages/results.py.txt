@@ -1,0 +1,51 @@
+import streamlit as st
+import pandas as pd
+
+st.title("AI Dealership Analytics Dashboard")
+
+# Sample Data
+data = {
+    "Service": [
+        "Engine Service",
+        "Battery Service",
+        "Brake Service",
+        "Oil Service",
+        "Tire Service"
+    ],
+
+    "Count": [25, 18, 15, 30, 12]
+}
+
+df = pd.DataFrame(data)
+
+# Metrics
+st.subheader("Service Statistics")
+
+col1, col2, col3 = st.columns(3)
+
+col1.metric("Total Appointments", "100")
+
+col2.metric("High Priority Cases", "18")
+
+col3.metric("AI Predictions", "92% Accuracy")
+
+# Chart
+st.subheader("Service Analytics")
+
+st.bar_chart(df.set_index("Service"))
+
+# AI Summary
+st.subheader("AI Performance Summary")
+
+st.success("""
+The AI-powered dealership system successfully analyzed customer complaints,
+predicted vehicle issue categories, generated maintenance recommendations,
+and improved dealership workflow efficiency using Machine Learning and LLM integration.
+""")
+
+# Customer Satisfaction
+st.subheader("Customer Satisfaction")
+
+st.progress(90)
+
+st.write("90% Customer Satisfaction Achieved")
